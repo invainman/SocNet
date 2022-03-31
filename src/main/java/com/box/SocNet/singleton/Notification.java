@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 import java.util.Date;
 
 @Scope("singleton")
-@Component("admin")
+@Component
 public class Notification {
 
     private Date date;
