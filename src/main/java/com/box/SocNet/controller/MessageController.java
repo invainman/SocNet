@@ -4,14 +4,12 @@ import com.box.SocNet.entity.Message;
 import com.box.SocNet.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import com.box.SocNet.singleton.Notification;
-import com.box.SocNet.singleton.Config;
 import java.util.List;
 
 
 @RestController
 @RequestMapping("/messages")
-public class MainController {
+public class MessageController {
 
     @Autowired
     private MessageService messageService;

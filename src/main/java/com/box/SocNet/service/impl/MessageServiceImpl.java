@@ -5,7 +5,6 @@ import com.box.SocNet.repository.MessageRepository;
 import com.box.SocNet.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
