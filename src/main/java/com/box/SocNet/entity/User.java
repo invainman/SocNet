@@ -3,7 +3,6 @@ package com.box.SocNet.entity;
 import javax.persistence.*;
 
 @Entity
-@Table
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

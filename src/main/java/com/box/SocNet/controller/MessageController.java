@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-
 @RestController
 @RequestMapping("/messages")
 public class MessageController {
@@ -19,20 +18,19 @@ public class MessageController {
             return messageService.addMessage(message);
     }
 
-    @GetMapping()
+    @GetMapping
     public List<Message> getAll() {
        return messageService.getAll();
     }
 
-    @PutMapping()
+    @PutMapping
     public Message changeMessage(@RequestBody Message message) {
         return messageService.changeMessage(message);
     }
 
-    @DeleteMapping()
+    @DeleteMapping
     public void deleteMessage(@RequestBody Long id) {
        messageService.deleteMessage(id);
     }
-
 
 }
