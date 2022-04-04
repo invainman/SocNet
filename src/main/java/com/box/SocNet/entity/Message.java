@@ -3,6 +3,7 @@ package com.box.SocNet.entity;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "message")
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
