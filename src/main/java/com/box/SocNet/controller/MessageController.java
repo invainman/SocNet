@@ -23,6 +23,11 @@ public class MessageController {
        return messageService.getAll();
     }
 
+    @GetMapping("/byTag")
+    public List<Message> getAllByTag(@RequestParam String tag) {
+       return messageService.getAllByTag(tag);
+    }
+
     @PutMapping
     public Message changeMessage(@RequestBody Message message) {
         return messageService.changeMessage(message);

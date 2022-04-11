@@ -14,6 +14,11 @@ public class MessageServiceImpl implements MessageService {
     private MessageRepository messageRepository;
 
     @Override
+    public List<Message> getAllByTag(String tag) {
+        return messageRepository.getMessageByTag(tag);
+    }
+
+    @Override
     public Message addMessage(Message message) {
         return messageRepository.save(message);
     }
