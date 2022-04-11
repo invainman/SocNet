@@ -33,4 +33,8 @@ public class UserController {
         userService.deleteUser(id);
     }
 
+    @GetMapping("/byEmail")
+    public List<User> getAllByEmail(@RequestParam String email) {
+        return userService.getAllByEmail(email);
+    }
 }
