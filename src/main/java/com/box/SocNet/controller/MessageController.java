@@ -23,8 +23,8 @@ public class MessageController {
        return messageService.getAll();
     }
 
-    @GetMapping("/byTag")
-    public List<Message> getAllByTag(@RequestParam String tag) {
+    @GetMapping("/{tag}")
+    public List<Message> getAllByTag(@PathVariable String tag) {
        return messageService.getAllByTag(tag);
     }
 
@@ -33,8 +33,8 @@ public class MessageController {
         return messageService.changeMessage(message);
     }
 
-    @DeleteMapping
-    public void deleteMessage(@RequestBody Long id) {
+    @DeleteMapping("/{id}")
+    public void deleteMessage(@PathVariable Long id) {
        messageService.deleteMessage(id);
     }
 

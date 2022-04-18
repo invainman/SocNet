@@ -28,13 +28,13 @@ public class UserController {
         return userService.changeUser(user);
     }
 
-    @DeleteMapping()
-    public void deleteUser(@RequestBody Long id){
+    @DeleteMapping("/{id}")
+    public void deleteUser(@PathVariable Long id){
         userService.deleteUser(id);
     }
 
-    @GetMapping("/byEmail")
-    public List<User> getAllByEmail(@RequestParam String email) {
+    @GetMapping("/{email}")
+    public List<User> getAllByEmail(@PathVariable String email) {
         return userService.getAllByEmail(email);
     }
 }
