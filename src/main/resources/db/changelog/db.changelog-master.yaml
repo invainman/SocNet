@@ -43,5 +43,3 @@ databaseChangeLog:
               - column:
                   name: tag
                   type: varchar(50)
-
-
