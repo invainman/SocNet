@@ -1,6 +1,6 @@
 package com.box.SocNet.controller;
 
-import com.box.SocNet.entity.User;
+import com.box.SocNet.model.User;
 import com.box.SocNet.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

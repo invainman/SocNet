@@ -1,6 +1,6 @@
 package com.box.SocNet.controller;
 
-import com.box.SocNet.entity.Message;
+import com.box.SocNet.model.Message;
 import com.box.SocNet.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

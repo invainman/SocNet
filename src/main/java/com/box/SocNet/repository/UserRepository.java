@@ -1,6 +1,6 @@
 package com.box.SocNet.repository;
 
-import com.box.SocNet.entity.User;
+import com.box.SocNet.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

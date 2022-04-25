@@ -1,6 +1,6 @@
 package com.box.SocNet.service.impl;
 
-import com.box.SocNet.entity.Message;
+import com.box.SocNet.model.Message;
 import com.box.SocNet.repository.MessageRepository;
 import com.box.SocNet.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;

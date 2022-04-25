@@ -1,4 +1,4 @@
-package com.box.SocNet.entity;
+package com.box.SocNet.model;
 
 import javax.persistence.*;
 

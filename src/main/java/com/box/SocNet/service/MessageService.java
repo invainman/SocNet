@@ -1,6 +1,6 @@
 package com.box.SocNet.service;
 
-import com.box.SocNet.entity.Message;
+import com.box.SocNet.model.Message;
 import java.util.List;
 
 public interface MessageService {

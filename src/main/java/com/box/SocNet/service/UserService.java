@@ -1,6 +1,6 @@
 package com.box.SocNet.service;
 
-import com.box.SocNet.entity.User;
+import com.box.SocNet.model.User;
 import java.util.List;
 
 public interface UserService {
