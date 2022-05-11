@@ -11,8 +11,6 @@ public interface MessageService {
 
     void deleteMessage(Long id);
 
-    List<Message> getAllByTag(String tag);
-
     Message changeMessage(Message message);
 }
 

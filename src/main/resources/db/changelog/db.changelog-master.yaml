@@ -15,13 +15,10 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: name
+                  name: email
                   type: varchar(50)
                   constraints:
                     nullable: false
-              - column:
-                  name: email
-                  type: varchar(50)
               - column:
                   name: password
                   type: varchar(255)
@@ -44,8 +41,65 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
+                  name: id_to
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+              - column:
+                  name: id_from
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+              - column:
+                  name: text
+                  type: varchar(255)
+
+        - createTable:
+            tableName: post
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
                   name: text
                   type: varchar(255)
               - column:
-                  name: tag
-                  type: varchar(50)
+                  name: id_user
+                  type: BIGINT
+                  constraints:
+                    nullable: false
+
+        - createTable:
+            tableName: profile
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: surname
+                  type: varchar(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: about_me
+                  type: varchar(255)
+              - column:
+                  name: id_user
+                  type: BIGINT
+                  constraints:
+                    nullable: false

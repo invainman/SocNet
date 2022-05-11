@@ -26,12 +26,6 @@ public class MessageController {
        return messageService.getAll();
     }
 
-    @GetMapping("/{tag}")
-    @PreAuthorize("hasAuthority('user:read')")
-    public List<Message> getAllByTag(@PathVariable String tag) {
-       return messageService.getAllByTag(tag);
-    }
-
     @PutMapping
     @PreAuthorize("hasAuthority('user:write')")
     public Message changeMessage(@RequestBody Message message) {
