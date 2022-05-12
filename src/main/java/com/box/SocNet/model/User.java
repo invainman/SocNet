@@ -1,6 +1,7 @@
 package com.box.SocNet.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -12,6 +13,9 @@ public class User {
     private String password;
     @Enumerated(value = EnumType.STRING)
     private Role role;
+    @OneToMany
+    private List<Post> posts;
+
     public User(){
     }
 
@@ -45,5 +49,13 @@ public class User {
 
     public void setRole(Role role) {
         this.role = role;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 }

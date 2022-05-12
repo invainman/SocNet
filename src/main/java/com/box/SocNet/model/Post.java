@@ -1,6 +1,7 @@
 package com.box.SocNet.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "post")
@@ -9,7 +10,6 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String text;
-    private Long id_user;
 
     public Post() {
 
@@ -29,13 +29,5 @@ public class Post {
 
     public void setText(String text) {
         this.text = text;
-    }
-
-    public Long getId_user() {
-        return id_user;
-    }
-
-    public void setId_user(Long id_user) {
-        this.id_user = id_user;
     }
 }

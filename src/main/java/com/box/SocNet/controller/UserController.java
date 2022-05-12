@@ -43,4 +43,6 @@ public class UserController {
     public List<User> getAllByEmail(@PathVariable String email) {
         return userService.getAllByEmail(email);
     }
+
+
 }

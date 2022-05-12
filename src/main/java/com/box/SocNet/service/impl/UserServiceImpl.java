@@ -1,5 +1,6 @@
 package com.box.SocNet.service.impl;
 
+import com.box.SocNet.model.Role;
 import com.box.SocNet.model.User;
 import com.box.SocNet.repository.UserRepository;
 import com.box.SocNet.service.UserService;
@@ -19,7 +20,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getById(Long id) {
+        return userRepository.findById(id).orElse(null);
+    }
+
+    @Override
     public User addUser(User user){
+        if(user.getRole()== null){
+            user.setRole(Role.USER);
+        }
         return userRepository.save(user);
     }
 
@@ -37,4 +46,5 @@ public class UserServiceImpl implements UserService {
     public void deleteUser(Long id){
         userRepository.deleteById(id);
     }
+
 }
