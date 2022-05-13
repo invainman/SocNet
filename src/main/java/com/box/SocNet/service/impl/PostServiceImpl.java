@@ -1,9 +1,9 @@
 package com.box.SocNet.service.impl;
 
 import com.box.SocNet.model.Post;
-import com.box.SocNet.model.User;
+import com.box.SocNet.model.Profile;
 import com.box.SocNet.repository.PostRepository;
-import com.box.SocNet.repository.UserRepository;
+import com.box.SocNet.repository.ProfileRepository;
 import com.box.SocNet.service.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,7 +16,7 @@ public class PostServiceImpl implements PostService {
     private PostRepository postRepository;
 
     @Autowired
-    private UserRepository userRepository;
+    private ProfileRepository profileRepository;
 
     @Override
     public List<Post> getAll() {
@@ -24,11 +24,11 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Post addPost(Post post, User user) {
+    public Post addPost(Post post, Profile profile) {
         postRepository.save(post);
-        List<Post> posts = user.getPosts();
+        List<Post> posts = profile.getPosts();
         posts.add(post);
-        userRepository.save(user);
+        profileRepository.save(profile);
         return post;
     }
 

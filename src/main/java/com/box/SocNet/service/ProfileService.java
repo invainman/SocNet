@@ -2,7 +2,6 @@ package com.box.SocNet.service;
 
 import com.box.SocNet.model.Profile;
 import com.box.SocNet.model.User;
-
 import java.util.List;
 
 public interface ProfileService {
@@ -14,4 +13,6 @@ public interface ProfileService {
     Profile changeProfile(Profile profile);
 
     void deleteProfile(Long id);
+
+    Profile getById (Long id);
 }

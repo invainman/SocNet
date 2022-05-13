@@ -1,7 +1,6 @@
 package com.box.SocNet.model;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "post")
@@ -12,7 +11,6 @@ public class Post {
     private String text;
 
     public Post() {
-
     }
 
     public Long getId() {

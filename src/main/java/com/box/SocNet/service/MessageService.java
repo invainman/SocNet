@@ -13,5 +13,3 @@ public interface MessageService {
 
     Message changeMessage(Message message);
 }
-
-

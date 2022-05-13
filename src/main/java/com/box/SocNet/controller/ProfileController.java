@@ -7,7 +7,6 @@ import com.box.SocNet.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
@@ -43,5 +42,4 @@ public class ProfileController {
     public void deleteProfile(@PathVariable Long id) {
         profileService.deleteProfile(id);
     }
-
 }

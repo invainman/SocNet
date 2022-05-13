@@ -1,6 +1,7 @@
 package com.box.SocNet.model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "profile")
@@ -11,6 +12,8 @@ public class Profile {
     private String name;
     private String surname;
     private String about_me;
+    @OneToMany
+    private List<Post> posts;
 
     public Profile() {
     }
@@ -45,5 +48,13 @@ public class Profile {
 
     public void setAbout_me(String about_me) {
         this.about_me = about_me;
+    }
+
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
     }
 }
