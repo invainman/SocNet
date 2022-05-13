@@ -32,7 +32,6 @@ public class PostController {
         return postService.addPost(post, user);
     }
 
-
     @PutMapping
     @PreAuthorize("hasAuthority('user:write')")
     public Post changePost(@RequestBody Post post) {

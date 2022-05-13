@@ -11,7 +11,6 @@ public class Profile {
     private String name;
     private String surname;
     private String about_me;
-    private Long id_user;
 
     public Profile() {
     }
@@ -46,13 +45,5 @@ public class Profile {
 
     public void setAbout_me(String about_me) {
         this.about_me = about_me;
-    }
-
-    public Long getId_user() {
-        return id_user;
-    }
-
-    public void setId_user(Long id_user) {
-        this.id_user = id_user;
     }
 }

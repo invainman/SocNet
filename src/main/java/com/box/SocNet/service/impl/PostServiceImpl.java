@@ -28,8 +28,8 @@ public class PostServiceImpl implements PostService {
         postRepository.save(post);
         List<Post> posts = user.getPosts();
         posts.add(post);
-        User updatedUser = userRepository.save(user);
-        return updatedUser.getPosts().stream().filter(p -> p.getId().equals(post.getId())).findAny().orElse(null);
+        userRepository.save(user);
+        return post;
     }
 
     @Override

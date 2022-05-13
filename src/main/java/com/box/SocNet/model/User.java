@@ -15,6 +15,8 @@ public class User {
     private Role role;
     @OneToMany
     private List<Post> posts;
+    @OneToOne
+    private Profile profile;
 
     public User(){
     }
@@ -57,5 +59,13 @@ public class User {
 
     public void setPosts(List<Post> posts) {
         this.posts = posts;
+    }
+
+    public Profile getProfile() {
+        return profile;
+    }
+
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 }

@@ -69,11 +69,6 @@ databaseChangeLog:
               - column:
                   name: text
                   type: varchar(255)
-              - column:
-                  name: id_user
-                  type: BIGINT
-                  constraints:
-                    nullable: false
 
         - createTable:
             tableName: profile
@@ -98,8 +93,3 @@ databaseChangeLog:
               - column:
                   name: about_me
                   type: varchar(255)
-              - column:
-                  name: id_user
-                  type: BIGINT
-                  constraints:
-                    nullable: false
