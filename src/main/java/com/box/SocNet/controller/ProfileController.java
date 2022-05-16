@@ -31,10 +31,10 @@ public class ProfileController {
         return profileService.addProfile(profile, user);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     @PreAuthorize("hasAuthority('user:write')")
-    public Profile changeProfile(@RequestBody Profile profile) {
-        return profileService.changeProfile(profile);
+    public Profile changeProfile(@RequestBody Profile profile, @PathVariable Long id) {
+        return profileService.changeProfile(profile, id);
     }
 
     @DeleteMapping("/{id}")

@@ -10,7 +10,7 @@ public interface ProfileService {
 
     Profile addProfile(Profile profile, User user);
 
-    Profile changeProfile(Profile profile);
+    Profile changeProfile(Profile profile, Long id);
 
     void deleteProfile(Long id);
 

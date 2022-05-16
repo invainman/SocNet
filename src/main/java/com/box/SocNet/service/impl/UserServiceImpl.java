@@ -39,6 +39,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User changeUser(User user){
+        if(user.getRole()== null){
+            user.setRole(Role.USER);
+        }
         return userRepository.save(user);
     }
 

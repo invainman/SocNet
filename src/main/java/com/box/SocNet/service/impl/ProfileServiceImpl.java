@@ -37,7 +37,8 @@ public class ProfileServiceImpl implements ProfileService {
     }
 
     @Override
-    public Profile changeProfile(Profile profile) {
+    public Profile changeProfile(Profile profile, Long id) {
+        profile.setId(id);
         return profileRepository.save(profile);
     }
 
