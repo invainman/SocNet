@@ -29,6 +29,9 @@ databaseChangeLog:
                   type: varchar(20)
                   constraints:
                     nullable: false
+              - column:
+                  name: profile_id
+                  type: BIGINT
 
         - createTable:
             tableName: message
@@ -43,13 +46,11 @@ databaseChangeLog:
               - column:
                   name: id_to
                   type: BIGINT
-                  autoIncrement: true
                   constraints:
                     nullable: false
               - column:
                   name: id_from
                   type: BIGINT
-                  autoIncrement: true
                   constraints:
                     nullable: false
               - column:
@@ -69,6 +70,9 @@ databaseChangeLog:
               - column:
                   name: text
                   type: varchar(255)
+              - column:
+                  name: profile_id
+                  type: BIGINT
 
         - createTable:
             tableName: profile
@@ -93,3 +97,13 @@ databaseChangeLog:
               - column:
                   name: about_me
                   type: varchar(255)
+              - column:
+                  name: posts
+                  type: BIGINT
+
+        - addForeignKeyConstraint:
+            baseColumnNames: profile_id
+            baseTableName: users
+            constraintName: profile_id
+            referencedColumnNames: id
+            referencedTableName: profile
