@@ -97,13 +97,17 @@ databaseChangeLog:
               - column:
                   name: about_me
                   type: varchar(255)
-              - column:
-                  name: posts
-                  type: BIGINT
 
         - addForeignKeyConstraint:
             baseColumnNames: profile_id
             baseTableName: users
-            constraintName: profile_id
+            constraintName: user_profile
+            referencedColumnNames: id
+            referencedTableName: profile
+
+        - addForeignKeyConstraint:
+            baseColumnNames: profile_id
+            baseTableName: post
+            constraintName: post_profile
             referencedColumnNames: id
             referencedTableName: profile

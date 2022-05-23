@@ -12,7 +12,7 @@ public class Profile {
     private String name;
     private String surname;
     private String about_me;
-    @OneToMany
+    @OneToMany(mappedBy = "profile_id")
     private List<Post> posts;
 
     public Profile() {

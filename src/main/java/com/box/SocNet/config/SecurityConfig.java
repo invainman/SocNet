@@ -25,6 +25,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         this.jwtConfigurer = jwtConfigurer;
     }
 
+
+        private static final String[] AUTH_WHITELIST = {
+                "/authenticate",
+                "/swagger-resources/",
+                "/swagger-ui/",
+                "/swagger-ui/*",
+                "/swagger-ui/**",
+                "/v3/api-docs/*",
+                "/v3/api-docs/**",
+                "/swagger-ui.html",
+                "/swagger-ui/index.html",
+                "/v3/api-docs/",
+                "/v3/api-docs",
+                "/webjars/",
+                "/swagger-ui.css",
+                "/swagger-ui/swagger-ui.css"
+        };
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -33,6 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .and()
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
+                .antMatchers(AUTH_WHITELIST).permitAll()
                 .antMatchers("/auth/login").permitAll()
                 .anyRequest()
                 .authenticated()
@@ -50,4 +69,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
     protected PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(12);
     }
+
+
 }
