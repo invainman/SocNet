@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -25,24 +26,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
         this.jwtConfigurer = jwtConfigurer;
     }
 
-
-        private static final String[] AUTH_WHITELIST = {
-                "/authenticate",
-                "/swagger-resources/",
-                "/swagger-ui/",
-                "/swagger-ui/*",
-                "/swagger-ui/**",
-                "/v3/api-docs/*",
-                "/v3/api-docs/**",
-                "/swagger-ui.html",
-                "/swagger-ui/index.html",
-                "/v3/api-docs/",
-                "/v3/api-docs",
-                "/webjars/",
-                "/swagger-ui.css",
-                "/swagger-ui/swagger-ui.css"
-        };
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
@@ -50,8 +33,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
                 .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeRequests()
+                .antMatchers("/v2/api-docs").permitAll()
+                .antMatchers("/configuration/ui").permitAll()
+                .antMatchers("/swagger-resources/**").permitAll()
+                .antMatchers("/configuration/security").permitAll()
+                .antMatchers("/swagger-ui.html").permitAll()
+                .antMatchers("/swagger-ui/*").permitAll()
+                .antMatchers("/webjars/**").permitAll()
+                .antMatchers("/v2/**").permitAll()
                 .antMatchers("/").permitAll()
-                .antMatchers(AUTH_WHITELIST).permitAll()
                 .antMatchers("/auth/login").permitAll()
                 .anyRequest()
                 .authenticated()
