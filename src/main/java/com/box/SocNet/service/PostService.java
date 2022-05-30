@@ -8,7 +8,7 @@ public interface PostService {
 
     List<Post> getAll();
 
-    Post addPost(Post post, Profile profile);
+    Post addPost(Post post, Long id);
 
     Post changePost(Post post);
 

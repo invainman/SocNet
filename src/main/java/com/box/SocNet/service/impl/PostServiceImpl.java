@@ -24,8 +24,10 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public Post addPost(Post post, Profile profile) {
+    public Post addPost(Post post, Long id) {
+        post.setProfile_id(id);
         postRepository.save(post);
+        Profile profile = profileRepository.getById(id);
         List<Post> posts = profile.getPosts();
         posts.add(post);
         profileRepository.save(profile);

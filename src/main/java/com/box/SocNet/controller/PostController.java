@@ -25,8 +25,7 @@ public class PostController {
 
     @PostMapping("/{id}")
     public Post addPost(@RequestBody Post post,@PathVariable Long id) {
-        Profile profile = profileService.getById(id);
-        return postService.addPost(post, profile);
+        return postService.addPost(post, id);
     }
 
     @PutMapping

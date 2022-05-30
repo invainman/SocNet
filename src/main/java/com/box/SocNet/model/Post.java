@@ -9,7 +9,7 @@ public class Post {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String text;
-    private Long profile_id;
+    private Long profileId;
 
     public Post() {
     }
@@ -31,10 +31,10 @@ public class Post {
     }
 
     public Long getProfile_id() {
-        return profile_id;
+        return profileId;
     }
 
-    public void setProfile_id(Long profile_id) {
-        this.profile_id = profile_id;
+    public void setProfile_id(Long profileId) {
+        this.profileId = profileId;
     }
 }

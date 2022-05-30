@@ -1,5 +1,6 @@
 package com.box.SocNet.repository;
 
+import com.box.SocNet.model.Profile;
 import com.box.SocNet.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
@@ -12,5 +13,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
     List<User> findUsersByEmail(String email);
 
     Optional<User> findByEmail(String email);
+
+    User findByProfile (Profile profile);
 
 }
