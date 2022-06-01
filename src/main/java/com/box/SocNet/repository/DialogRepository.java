@@ -8,4 +8,6 @@ import org.springframework.stereotype.Repository;
 public interface DialogRepository extends JpaRepository<Dialog, Long> {
 
     Dialog getByProfileId (Long profileId);
+
+    Dialog getByIdTo (Long idTo);
 }
