@@ -3,14 +3,15 @@ package com.box.SocNet.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "message")
+@Table(name = "messages")
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(name = "text")
     private String text;
-    private Long id_to;
-    private Long id_from;
+    @Column(name = "id_dialog")
+    private Long dialogId;
 
     public Message() {
     }
@@ -31,19 +32,11 @@ public class Message {
         this.text = text;
     }
 
-    public Long getId_to() {
-        return id_to;
+    public Long getDialogId() {
+        return dialogId;
     }
 
-    public void setId_to(Long id_to) {
-        this.id_to = id_to;
-    }
-
-    public Long getId_from() {
-        return id_from;
-    }
-
-    public void setId_from(Long id_from) {
-        this.id_from = id_from;
+    public void setDialogId(Long dialogId) {
+        this.dialogId = dialogId;
     }
 }

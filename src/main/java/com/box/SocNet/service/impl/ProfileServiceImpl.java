@@ -1,11 +1,7 @@
 package com.box.SocNet.service.impl;
 
-import com.box.SocNet.model.Post;
-import com.box.SocNet.model.Profile;
-import com.box.SocNet.model.User;
-import com.box.SocNet.repository.PostRepository;
-import com.box.SocNet.repository.ProfileRepository;
-import com.box.SocNet.repository.UserRepository;
+import com.box.SocNet.model.*;
+import com.box.SocNet.repository.*;
 import com.box.SocNet.service.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,6 +18,12 @@ public class ProfileServiceImpl implements ProfileService {
 
     @Autowired
     private PostRepository postRepository;
+
+    @Autowired
+    private DialogRepository dialogRepository;
+
+    @Autowired
+    private MessageRepository messageRepository;
 
     @Override
     public Profile getById(Long id) {
@@ -52,7 +54,17 @@ public class ProfileServiceImpl implements ProfileService {
         User user = userRepository.findByProfile(getById(id));
         user.setProfile(null);
         Post post = postRepository.findByProfileId(id);
-        postRepository.delete(post);
+        if (post != null) {
+            postRepository.delete(post);
+        }
+        Dialog dialog = dialogRepository.getByProfileId(id);
+        if (dialog != null) {
+            List<Message> messages = messageRepository.getAllByDialogId(dialog.getId());
+            if (messages != null) {
+                messageRepository.deleteAll(messages);
+            }
+            dialogRepository.delete(dialog);
+        }
         profileRepository.deleteById(id);
     }
 }

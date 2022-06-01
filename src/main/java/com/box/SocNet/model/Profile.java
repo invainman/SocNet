@@ -4,16 +4,21 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "profile")
+@Table(name = "profiles")
 public class Profile {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(name = "name")
     private String name;
+    @Column(name = "surname")
     private String surname;
-    private String about_me;
+    @Column(name = "about_me")
+    private String aboutMe;
     @OneToMany(mappedBy = "profileId")
     private List<Post> posts;
+    @OneToMany(mappedBy = "profileId")
+    private List<Dialog> dialogs;
 
     public Profile() {
     }
@@ -42,12 +47,12 @@ public class Profile {
         this.surname = surname;
     }
 
-    public String getAbout_me() {
-        return about_me;
+    public String getAboutMe() {
+        return aboutMe;
     }
 
-    public void setAbout_me(String about_me) {
-        this.about_me = about_me;
+    public void setAboutMe(String aboutMe) {
+        this.aboutMe = aboutMe;
     }
 
     public List<Post> getPosts() {
@@ -56,5 +61,13 @@ public class Profile {
 
     public void setPosts(List<Post> posts) {
         this.posts = posts;
+    }
+
+    public List<Dialog> getDialogs() {
+        return dialogs;
+    }
+
+    public void setDialogs(List<Dialog> dialogs) {
+        this.dialogs = dialogs;
     }
 }

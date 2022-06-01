@@ -3,12 +3,14 @@ package com.box.SocNet.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "post")
+@Table(name = "posts")
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    @Column(name = "text")
     private String text;
+    @Column(name = "profile_id")
     private Long profileId;
 
     public Post() {
