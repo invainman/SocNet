@@ -135,3 +135,10 @@ databaseChangeLog:
             constraintName: dialogs_profile
             referencedColumnNames: id
             referencedTableName: profiles
+
+        - addForeignKeyConstraint:
+            baseColumnNames: id_to
+            baseTableName: dialogs
+            constraintName: dialogs_to_profile
+            referencedColumnNames: id
+            referencedTableName: profiles

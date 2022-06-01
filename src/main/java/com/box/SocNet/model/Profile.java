@@ -19,6 +19,8 @@ public class Profile {
     private List<Post> posts;
     @OneToMany(mappedBy = "profileId")
     private List<Dialog> dialogs;
+    @OneToMany(mappedBy = "idTo")
+    private List<Dialog> dialogsTo;
 
     public Profile() {
     }
@@ -69,5 +71,13 @@ public class Profile {
 
     public void setDialogs(List<Dialog> dialogs) {
         this.dialogs = dialogs;
+    }
+
+    public List<Dialog> getDialogsTo() {
+        return dialogsTo;
+    }
+
+    public void setDialogsTo(List<Dialog> dialogsTo) {
+        this.dialogsTo = dialogsTo;
     }
 }
