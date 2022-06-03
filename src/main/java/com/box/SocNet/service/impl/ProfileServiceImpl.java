@@ -57,15 +57,8 @@ public class ProfileServiceImpl implements ProfileService {
         if (post != null) {
             postRepository.delete(post);
         }
-        Dialog dialogFrom = dialogRepository.getByProfileId(id);
-        Dialog dialogTo = dialogRepository.getByIdTo(id);
-        if (dialogFrom!=null || dialogTo!=null) {
-            if (dialogFrom!=null){
-                dialogFrom.setProfileId(null);
-            } else {
-                dialogTo.setIdTo(null);
-            }
-        }
+
+
         profileRepository.deleteById(id);
     }
 }

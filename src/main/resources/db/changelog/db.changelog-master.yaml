@@ -44,11 +44,14 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: id_dialog
+                  name: dialog_id
                   type: BIGINT
               - column:
                   name: text
                   type: varchar(255)
+              - column:
+                  name: profile_id
+                  type: BIGINT
 
         - createTable:
             tableName: posts
@@ -102,10 +105,10 @@ databaseChangeLog:
                     primaryKey: true
                     nullable: false
               - column:
-                  name: profile_id
+                  name: profile1_id
                   type: BIGINT
               - column:
-                  name: id_to
+                  name: profile2_id
                   type: BIGINT
 
         - addForeignKeyConstraint:
@@ -123,21 +126,21 @@ databaseChangeLog:
             referencedTableName: profiles
 
         - addForeignKeyConstraint:
-            baseColumnNames: id_dialog
+            baseColumnNames: dialog_id
             baseTableName: messages
             constraintName: message_dialog
             referencedColumnNames: id
             referencedTableName: dialogs
 
         - addForeignKeyConstraint:
-            baseColumnNames: profile_id
+            baseColumnNames: profile1_id
             baseTableName: dialogs
             constraintName: dialogs_profile
             referencedColumnNames: id
             referencedTableName: profiles
 
         - addForeignKeyConstraint:
-            baseColumnNames: id_to
+            baseColumnNames: profile2_id
             baseTableName: dialogs
             constraintName: dialogs_to_profile
             referencedColumnNames: id

@@ -11,4 +11,6 @@ public interface DialogService {
     Dialog addDialog(Dialog dialog);
 
     void deleteDialog(Long id);
+
+    List<Dialog> findAllByProfileId(Long id);
 }

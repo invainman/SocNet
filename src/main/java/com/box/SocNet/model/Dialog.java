@@ -10,10 +10,10 @@ public class Dialog {
    @Id
    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @Column(name = "profile_id")
-    private Long profileId;
-    @Column(name = "id_to")
-    private Long idTo;
+    @Column(name = "profile1_id")
+    private Long firstProfileId;
+    @Column(name = "profile2_id")
+    private Long secondProfileId;
     @OneToMany(mappedBy = "dialogId")
     private List<Message> messages;
 
@@ -28,27 +28,27 @@ public class Dialog {
         this.id = id;
     }
 
-    public Long getProfileId() {
-        return profileId;
-    }
-
-    public void setProfileId(Long profileId) {
-        this.profileId = profileId;
-    }
-
-    public Long getIdTo() {
-        return idTo;
-    }
-
-    public void setIdTo(Long idTo) {
-        this.idTo = idTo;
-    }
-
     public List<Message> getMessages() {
         return messages;
     }
 
     public void setMessages(List<Message> messages) {
         this.messages = messages;
+    }
+
+    public Long getFirstProfileId() {
+        return firstProfileId;
+    }
+
+    public void setFirstProfileId(Long firstProfileId) {
+        this.firstProfileId = firstProfileId;
+    }
+
+    public Long getSecondProfileId() {
+        return secondProfileId;
+    }
+
+    public void setSecondProfileId(Long secondProfileId) {
+        this.secondProfileId = secondProfileId;
     }
 }

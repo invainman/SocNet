@@ -10,8 +10,10 @@ public class Message {
     private Long id;
     @Column(name = "text")
     private String text;
-    @Column(name = "id_dialog")
+    @Column(name = "dialog_id")
     private Long dialogId;
+    @Column(name = "profile_id")
+    private Long profileId;
 
     public Message() {
     }
@@ -38,5 +40,13 @@ public class Message {
 
     public void setDialogId(Long dialogId) {
         this.dialogId = dialogId;
+    }
+
+    public Long getProfileId() {
+        return profileId;
+    }
+
+    public void setProfileId(Long profileId) {
+        this.profileId = profileId;
     }
 }

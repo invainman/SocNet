@@ -25,7 +25,12 @@ public class DialogController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteDialog(@PathVariable Long id) {
+    public void deleteDialog(@PathVariable Long id){
         dialogService.deleteDialog(id);
+    }
+
+    @GetMapping("/{id}")
+    public List<Dialog> getAllByProfileId(@PathVariable Long id){
+        return dialogService.findAllByProfileId(id);
     }
 }

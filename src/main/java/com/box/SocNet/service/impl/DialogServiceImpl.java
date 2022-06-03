@@ -35,4 +35,9 @@ public class DialogServiceImpl implements DialogService {
         messageRepository.deleteAll(messages);
         dialogRepository.deleteById(id);
     }
+
+    @Override
+    public List<Dialog> findAllByProfileId(Long id) {
+        return dialogRepository.findAllByProfileId(id);
+    }
 }
