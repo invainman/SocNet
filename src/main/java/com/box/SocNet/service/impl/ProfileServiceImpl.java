@@ -6,6 +6,7 @@ import com.box.SocNet.service.ProfileService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class ProfileServiceImpl implements ProfileService {
@@ -51,14 +52,21 @@ public class ProfileServiceImpl implements ProfileService {
 
     @Override
     public void deleteProfile(Long id) {
-        User user = userRepository.findByProfile(getById(id));
-        user.setProfile(null);
-        Post post = postRepository.findByProfileId(id);
-        if (post != null) {
-            postRepository.delete(post);
+        userRepository.deleteById(id);
+        postRepository.deleteAllByProfileId(id);
+        List<Dialog> dialogs = dialogRepository.findAllByProfileId(id);
+        for (Dialog dialog:dialogs) {
+            if(Objects.equals(dialog.getFirstProfileId(), id)){
+                dialog.setFirstProfileId(null);
+            }
+            if (Objects.equals(dialog.getSecondProfileId(), id)){
+                dialog.setSecondProfileId(null);
+            }
         }
-
-
+        List<Message> messages = messageRepository.getAllByProfileId(id);// сделать в одну строку через query
+        for (Message message:messages) {
+            message.setProfileId(null);
+        }
         profileRepository.deleteById(id);
     }
 }

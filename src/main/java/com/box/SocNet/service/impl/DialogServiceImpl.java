@@ -1,7 +1,6 @@
 package com.box.SocNet.service.impl;
 
 import com.box.SocNet.model.Dialog;
-import com.box.SocNet.model.Message;
 import com.box.SocNet.repository.DialogRepository;
 import com.box.SocNet.repository.MessageRepository;
 import com.box.SocNet.service.DialogService;
@@ -31,8 +30,7 @@ public class DialogServiceImpl implements DialogService {
 
     @Override
     public void deleteDialog(Long id) {
-        List<Message> messages = messageRepository.getAllByDialogId(id);
-        messageRepository.deleteAll(messages);
+        messageRepository.deleteAllByDialogId(id);
         dialogRepository.deleteById(id);
     }
 
