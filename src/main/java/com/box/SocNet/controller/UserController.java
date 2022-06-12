@@ -4,6 +4,8 @@ import com.box.SocNet.model.User;
 import com.box.SocNet.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -14,7 +16,7 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public User addUser(@RequestBody User user){
+    public User addUser(@Valid @RequestBody User user){
         return userService.addUser(user);
     }
 
@@ -24,7 +26,7 @@ public class UserController {
     }
 
     @PutMapping()
-    public User changeUser(@RequestBody User user){
+    public User changeUser(@Valid @RequestBody User user){
         return userService.changeUser(user);
     }
 

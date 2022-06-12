@@ -1,6 +1,9 @@
 package com.box.SocNet.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "users")
@@ -9,7 +12,11 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     @Column(name = "email")
+    @NotNull(message = "Email should not be an empty")
+    @Email(message = "Email is not a valid")
     private String email;
+    @NotNull(message = "Password should not be an empty")
+    @Size(min = 8)
     @Column(name = "password")
     private String password;
     @Enumerated(value = EnumType.STRING)
